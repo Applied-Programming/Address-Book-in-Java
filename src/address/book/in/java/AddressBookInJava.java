@@ -9,18 +9,18 @@ import java.util.*;
 
 class AddressBookInJava implements ActionListener {
 
-    JPanel topPanel, bottomPanel;
-    JScrollPane scrollPane;
+    JPanel top_panel, bottom_panel;
+    JScrollPane scroll_pane;
     JFrame frame;
 
-    JMenuBar menubar = new JMenuBar();
+    JMenuBar menu_bar = new JMenuBar();
     JMenu menu = new JMenu();
-    JMenuItem menuItem;
+    JMenuItem menu_item;
 
     Toolkit kit = Toolkit.getDefaultToolkit();
-    Dimension screenSize = kit.getScreenSize();
-    int screenHeight = screenSize.height;
-    int screenWidth = screenSize.width;
+    Dimension screen_size = kit.getScreenSize();
+    int screen_height = screen_size.height;
+    int screen_width = screen_size.width;
 
     Image img = kit.getImage("images/icon.JPG");
 
@@ -30,7 +30,7 @@ class AddressBookInJava implements ActionListener {
         frame.setSize(680, 200);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLocation(screenWidth / 4, screenHeight / 4);
+        frame.setLocation(screen_width / 4, screen_height / 4);
         frame.setIconImage(img);
         addWidgets();
         frame.show();
@@ -38,79 +38,80 @@ class AddressBookInJava implements ActionListener {
     }
 
     public void addWidgets() {
-        menubar.add(menu);
+        menu_bar.add(menu);
 
         menu = new JMenu("Options");
-        menuItem = new JMenuItem("Add New Contact");
-        menu.add(menuItem);
-        menuItem.addActionListener(this);
+        menu_item = new JMenuItem("Add New Contact");
+        menu.add(menu_item);
+        menu_item.addActionListener(this);
 
-        menuItem = new JMenuItem("Delete Contact");
-        menu.add(menuItem);
-        menuItem.addActionListener(this);
+        menu_item = new JMenuItem("Delete Contact");
+        menu.add(menu_item);
+        menu_item.addActionListener(this);
 
-        menuItem = new JMenuItem("Search Contacts");
-        menu.add(menuItem);
-        menuItem.addActionListener(this);
+        menu_item = new JMenuItem("Search Contacts");
+        menu.add(menu_item);
+        menu_item.addActionListener(this);
 
-        menuItem = new JMenuItem("Sort Contacts");
-        menu.add(menuItem);
-        menuItem.addActionListener(this);
+        menu_item = new JMenuItem("Sort Contacts");
+        menu.add(menu_item);
+        menu_item.addActionListener(this);
 
-        menuItem = new JMenuItem("View All Contacts");
-        menu.add(menuItem);
-        menuItem.addActionListener(this);
+        menu_item = new JMenuItem("View All Contacts");
+        menu.add(menu_item);
+        menu_item.addActionListener(this);
 
-        menuItem = new JMenuItem("Backup Contacts");
-        menu.add(menuItem);
-        menuItem.addActionListener(this);
+        menu_item = new JMenuItem("Backup Contacts");
+        menu.add(menu_item);
+        menu_item.addActionListener(this);
 
-        menubar.add(menu);
+        menu_bar.add(menu);
 
         menu = new JMenu("Help");
 
-        menuItem = new JMenuItem("Help Contents");
-        menu.add(menuItem);
-        menuItem.addActionListener(this);
+        menu_item = new JMenuItem("Help Contents");
+        menu.add(menu_item);
+        menu_item.addActionListener(this);
 
-        menuItem = new JMenuItem("About");
-        menu.add(menuItem);
-        menuItem.addActionListener(this);
+        menu_item = new JMenuItem("About");
+        menu.add(menu_item);
+        menu_item.addActionListener(this);
 
-        menubar.add(menu);
+        menu_bar.add(menu);
 
-        frame.setJMenuBar(menubar);
+        frame.setJMenuBar(menu_bar);
 
-        JPanel topPanel = new JPanel();
-        JPanel bottomPanel = new JPanel();
+        JPanel top_panel = new JPanel();
+        JPanel bottom_panel = new JPanel();
 
         //Add Buttons To Bottom Panel
-        JButton AddNew = new JButton("Add New Contact");
-        JButton DeleteContact = new JButton("Delete Contact");
-        JButton SearchContacts = new JButton("Search Contacts");
-        JButton SortContacts = new JButton("Sort Contacts");
-        JButton ViewContactList = new JButton("View All Contacts ");
+        JButton add_new = new JButton("Add New Contact");
+        JButton delete_contact = new JButton("Delete Contact");
+        JButton search_contacts = new JButton("Search Contacts");
+        JButton sort_contacts = new JButton("Sort Contacts");
+        JButton view_contact_list = new JButton("View All Contacts ");
 
-        JLabel label = new JLabel("<HTML><FONT FACE = ARIAL SIZE = 2 > <B> Use The options below and In The Menu To Manage Contacts");
+        JLabel label = new JLabel("<HTML><FONT FACE = ARIAL SIZE = 2 > "
+                + "<B> Use the given options below and in the menu bar To manage Contacts");
 
         //Add Action Listeners
-        AddNew.addActionListener(this);
-        DeleteContact.addActionListener(this);
-        SearchContacts.addActionListener(this);
-        SortContacts.addActionListener(this);
-        ViewContactList.addActionListener(this);
+        add_new.addActionListener(this);
+        delete_contact.addActionListener(this);
+        search_contacts.addActionListener(this);
+        sort_contacts.addActionListener(this);
+        view_contact_list.addActionListener(this);
 
-        topPanel.add(label);
+        top_panel.add(label);
 
-        bottomPanel.add(AddNew);
-        bottomPanel.add(DeleteContact);
-        bottomPanel.add(SearchContacts);
-        bottomPanel.add(SortContacts);
-        bottomPanel.add(ViewContactList);
+        bottom_panel.add(add_new);
+        bottom_panel.add(delete_contact);
+        bottom_panel.add(search_contacts);
+        bottom_panel.add(sort_contacts);
+        bottom_panel.add(view_contact_list);
 
-        frame.getContentPane().add(topPanel,
+        frame.getContentPane().add(top_panel,
                 BorderLayout.NORTH);
-        frame.getContentPane().add(bottomPanel,
+        frame.getContentPane().add(bottom_panel,
                 BorderLayout.SOUTH);
         frame.setResizable(false);
 
@@ -125,23 +126,23 @@ class AddressBookInJava implements ActionListener {
 
     public void actionPerformed(ActionEvent ae) {
         if (ae.getActionCommand() == "Add New Contact") {
-            oh.AddNew();
+            oh.add_new();
 
         } else if (ae.getActionCommand() == "Search Contacts") {
-            oh.SearchContacts();
+            oh.search_contacts();
 
         } else if (ae.getActionCommand() == "Sort Contacts") {
-            oh.SortContacts();
+            oh.sort_contacts();
 
         } else if (ae.getActionCommand() == "Delete Contact") {
-            oh.DeleteContact();
+            oh.delete_contact();
 
         } else if (ae.getActionCommand() == "View All Contacts") {
 
             oh.ViewAllContacts();
 
         } else if (ae.getActionCommand() == "About") {
-            JOptionPane.showMessageDialog(frame, "About Address Book : Created By Rahul Chouhan Computer Engg, IET-DAVV, Indore.Website http://www.Rahul Chouhan.tk", "About Address Book", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(frame, "Manage Contacts:", "About Address Book", JOptionPane.INFORMATION_MESSAGE);
         } else if (ae.getActionCommand() == "Help Contents") {
             try {
                 oh.showHelp();
@@ -255,25 +256,25 @@ class OperationHandler implements ListSelectionListener,
         ActionListener,
         Runnable {
 
-    JFrame newFrame;
-    JTextField txtFirstName;
-    JTextField txtLastName;
-    JTextField txtNickname;
-    JTextField txtEMail;
-    JTextField txtAddress;
-    JTextField txtPhoneNo;
-    JTextField txtWebpage;
-    JTextField txtBDay;
+    JFrame new_frame;
+    JTextField tFirstName;
+    JTextField tLastName;
+    JTextField tNickname;
+    JTextField tEMail;
+    JTextField tAddress;
+    JTextField tPhoneNo;
+    JTextField tWebpage;
+    JTextField tBDay;
 
-    JButton BttnSaveAdded;
+    JButton btnSaveAdded;
 
     Vector v = new Vector(10, 3);
     int i = 0, k = 0;
 
     Toolkit kit = Toolkit.getDefaultToolkit();
-    Dimension screenSize = kit.getScreenSize();
-    int screenHeight = screenSize.height;
-    int screenWidth = screenSize.width;
+    Dimension screen_size = kit.getScreenSize();
+    int screen_height = screen_size.height;
+    int screen_width = screen_size.width;
 
     Image img = kit.getImage("images/icon.JPG");
 
@@ -327,117 +328,119 @@ class OperationHandler implements ListSelectionListener,
             oos.close();
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(newFrame, "Error Opening Data File: Could Not Save Contents.", "Error Opening Data File", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(new_frame, "Error Opening Data File: "
+                    + "Could Not Save Contents.", "Error Opening Data File", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 
-    public void AddNew() {
-        newFrame = new JFrame("Add New");
-        newFrame.setSize(220, 250);
-        newFrame.setResizable(false);
-        newFrame.setIconImage(img);
+    public void add_new() {
+        new_frame = new JFrame("Add New");
+        new_frame.setSize(220, 250);
+        new_frame.setResizable(false);
+        new_frame.setIconImage(img);
 
-        JLabel lblFirstName = new JLabel("First Name: ");
-        JLabel lblLastName = new JLabel("Last Name: ");
-        JLabel lblNickname = new JLabel("Nickname: ");
-        JLabel lblEMail = new JLabel("EMail: ");
-        JLabel lblAddress = new JLabel("Address: ");
-        JLabel lblPhoneNo = new JLabel("Phone No: ");
-        JLabel lblWebpage = new JLabel("Webpage: ");
-        JLabel lblBDay = new JLabel("BDay: ");
-        JLabel lblEmpty1 = new JLabel("");
-        JLabel lblEmpty2 = new JLabel("");
+        JLabel lFirstName = new JLabel("First Name: ");
+        JLabel lLastName = new JLabel("Last Name: ");
+        JLabel lNickname = new JLabel("Nickname: ");
+        JLabel lEMail = new JLabel("EMail: ");
+        JLabel lAddress = new JLabel("Address: ");
+        JLabel lPhoneNo = new JLabel("Phone No: ");
+        JLabel lWebpage = new JLabel("Webpage: ");
+        JLabel lBDay = new JLabel("BDay: ");
+        JLabel lEmpty1 = new JLabel("");
+        JLabel lEmpty2 = new JLabel("");
 
-        txtFirstName = new JTextField(10);
-        txtLastName = new JTextField(10);
-        txtNickname = new JTextField(10);
-        txtEMail = new JTextField(10);
-        txtAddress = new JTextField(10);
-        txtPhoneNo = new JTextField(10);
-        txtWebpage = new JTextField(10);
-        txtBDay = new JTextField(10);
+        tFirstName = new JTextField(10);
+        tLastName = new JTextField(10);
+        tNickname = new JTextField(10);
+        tEMail = new JTextField(10);
+        tAddress = new JTextField(10);
+        tPhoneNo = new JTextField(10);
+        tWebpage = new JTextField(10);
+        tBDay = new JTextField(10);
 
         JButton BttnAdd = new JButton("Add New!");
-        BttnSaveAdded = new JButton("Save Added!");
+        btnSaveAdded = new JButton("Save Added!");
 
         BttnAdd.addActionListener(this);
-        BttnSaveAdded.addActionListener(this);
-        BttnSaveAdded.setEnabled(false);
+        btnSaveAdded.addActionListener(this);
+        btnSaveAdded.setEnabled(false);
 
-        JPanel centerPane = new JPanel();
-        JPanel bottomPane = new JPanel();
+        JPanel center_pane = new JPanel();
+        JPanel bottom_pane = new JPanel();
 
-        centerPane.add(lblFirstName);
-        centerPane.add(txtFirstName);
-        centerPane.add(lblLastName);
-        centerPane.add(txtLastName);
-        centerPane.add(lblNickname);
-        centerPane.add(txtNickname);
-        centerPane.add(lblEMail);
-        centerPane.add(txtEMail);
-        centerPane.add(lblAddress);
-        centerPane.add(txtAddress);
-        centerPane.add(lblPhoneNo);
-        centerPane.add(txtPhoneNo);
-        centerPane.add(lblWebpage);
-        centerPane.add(txtWebpage);
-        centerPane.add(lblBDay);
-        centerPane.add(txtBDay);
-        bottomPane.add(BttnAdd);
-        bottomPane.add(BttnSaveAdded);
+        center_pane.add(lFirstName);
+        center_pane.add(tFirstName);
+        center_pane.add(lLastName);
+        center_pane.add(tLastName);
+        center_pane.add(lNickname);
+        center_pane.add(tNickname);
+        center_pane.add(lEMail);
+        center_pane.add(tEMail);
+        center_pane.add(lAddress);
+        center_pane.add(tAddress);
+        center_pane.add(lPhoneNo);
+        center_pane.add(tPhoneNo);
+        center_pane.add(lWebpage);
+        center_pane.add(tWebpage);
+        center_pane.add(lBDay);
+        center_pane.add(tBDay);
+        bottom_pane.add(BttnAdd);
+        bottom_pane.add(btnSaveAdded);
 
-        centerPane.setLayout(new GridLayout(0, 2));
+        center_pane.setLayout(new GridLayout(0, 2));
 
-        newFrame.getContentPane().add(centerPane, BorderLayout.CENTER);
+        new_frame.getContentPane().add(center_pane, BorderLayout.CENTER);
 
-        newFrame.getContentPane().add(bottomPane, BorderLayout.SOUTH);
-        newFrame.setLocation(screenWidth / 4, screenHeight / 4);
-        newFrame.show();
+        new_frame.getContentPane().add(bottom_pane, BorderLayout.SOUTH);
+        new_frame.setLocation(screen_width / 4, screen_height / 4);
+        new_frame.show();
 
     }
 
-    public void SearchContacts() {
-        newFrame = new JFrame("Search Contacts");
-        newFrame.setSize(700, 220);
-        newFrame.setLocation(screenWidth / 4, screenHeight / 4);
-        newFrame.setIconImage(img);
-        newFrame.setResizable(false);
+    public void search_contacts() {
+        new_frame = new JFrame("Search Contacts");
+        new_frame.setSize(700, 220);
+        new_frame.setLocation(screen_width / 4, screen_height / 4);
+        new_frame.setIconImage(img);
+        new_frame.setResizable(false);
 
-        JPanel topPane = new JPanel();
-        JLabel label1 = new JLabel("Search Contacts by First Name or Last Name or Both Spaced Via a Single Space:");
-        topPane.add(label1);
+        JPanel top_pane = new JPanel();
+        JLabel label1 = new JLabel("Search Contacts by First Name or Last Name"
+                + " or Both Spaced Via a Single Space:");
+        top_pane.add(label1);
 
-        JPanel centerPane = new JPanel();
+        JPanel center_pane = new JPanel();
         JLabel label2 = new JLabel("Search String:");
         txtSearch = new JTextField(20);
         JButton bttnSearch = new JButton("Search!");
         bttnSearch.addActionListener(this);
         JButton bttnCancel = new JButton("Cancel");
         bttnCancel.addActionListener(this);
-        centerPane.add(label2);
-        centerPane.add(txtSearch);
-        centerPane.add(bttnSearch);
-        centerPane.add(bttnCancel);
+        center_pane.add(label2);
+        center_pane.add(txtSearch);
+        center_pane.add(bttnSearch);
+        center_pane.add(bttnCancel);
 
         searchTable = new JTable(data, columnNames);
-        JScrollPane scrollPane = new JScrollPane(searchTable);
+        JScrollPane scroll_pane = new JScrollPane(searchTable);
         searchTable.setPreferredScrollableViewportSize(new Dimension(500, 90));
 
-        newFrame.getContentPane().add(scrollPane, BorderLayout.SOUTH);
+        new_frame.getContentPane().add(scroll_pane, BorderLayout.SOUTH);
 
-        newFrame.getContentPane().add(topPane,
+        new_frame.getContentPane().add(top_pane,
                 BorderLayout.NORTH);
-        newFrame.getContentPane().add(centerPane,
+        new_frame.getContentPane().add(center_pane,
                 BorderLayout.CENTER);
-        newFrame.show();
+        new_frame.show();
     }
 
-    public void SortContacts() {
-        newFrame = new JFrame("Sort Contacts");
-        newFrame.setSize(250, 160);
-        newFrame.setLocation(screenWidth / 4, screenHeight / 4);
-        newFrame.setIconImage(img);
-        newFrame.setResizable(false);
+    public void sort_contacts() {
+        new_frame = new JFrame("Sort Contacts");
+        new_frame.setSize(250, 160);
+        new_frame.setLocation(screen_width / 4, screen_height / 4);
+        new_frame.setIconImage(img);
+        new_frame.setResizable(false);
 
         byfname = new JRadioButton("By First Name");
         byfname.setActionCommand("By First Name");
@@ -450,41 +453,41 @@ class OperationHandler implements ListSelectionListener,
         group.add(byfname);
         group.add(bylname);
 
-        JPanel topPane = new JPanel();
+        JPanel top_pane = new JPanel();
         JLabel label = new JLabel("Sort Contacts By:");
-        topPane.add(label);
+        top_pane.add(label);
 
         JPanel pane = new JPanel(new GridLayout(0, 1));
         pane.add(byfname);
         pane.add(bylname);
 
-        JPanel bottomPane = new JPanel();
+        JPanel bottom_pane = new JPanel();
         JButton sortBttn = new JButton("Sort Contacts");
         JButton cancelBttn = new JButton("Cancel");
-        bottomPane.add(sortBttn);
-        bottomPane.add(cancelBttn);
+        bottom_pane.add(sortBttn);
+        bottom_pane.add(cancelBttn);
         sortBttn.addActionListener(this);
         cancelBttn.addActionListener(this);
 
-        newFrame.getContentPane().add(topPane,
+        new_frame.getContentPane().add(top_pane,
                 BorderLayout.NORTH);
-        newFrame.getContentPane().add(pane,
+        new_frame.getContentPane().add(pane,
                 BorderLayout.CENTER);
-        newFrame.getContentPane().add(bottomPane,
+        new_frame.getContentPane().add(bottom_pane,
                 BorderLayout.SOUTH);
 
-        newFrame.show();
+        new_frame.show();
 
     }
 
-    public void DeleteContact() {
+    public void delete_contact() {
         String fname, lname;
-        newFrame = new JFrame("Delete Contact");
-        newFrame.setSize(300, 300);
-        newFrame.setLocation(screenWidth / 4, screenHeight / 4);
-        newFrame.setIconImage(img);
+        new_frame = new JFrame("Delete Contact");
+        new_frame.setSize(300, 300);
+        new_frame.setLocation(screen_width / 4, screen_height / 4);
+        new_frame.setIconImage(img);
 
-        JPanel centerPane = new JPanel();
+        JPanel center_pane = new JPanel();
         listModel = new DefaultListModel();
 
         Contact contact = new Contact();
@@ -506,36 +509,36 @@ class OperationHandler implements ListSelectionListener,
 
         JScrollPane listScrollPane = new JScrollPane(list);
 
-        JPanel topPane = new JPanel();
+        JPanel top_pane = new JPanel();
         JLabel label = new JLabel("Current Contacts:");
-        topPane.add(label);
+        top_pane.add(label);
 
-        JPanel bottomPane = new JPanel();
+        JPanel bottom_pane = new JPanel();
 
         JButton bttnDelete = new JButton("Delete Selected");
-        bottomPane.add(bttnDelete);
+        bottom_pane.add(bttnDelete);
         bttnDelete.addActionListener(this);
 
         JButton bttnCancel = new JButton("Cancel");
-        bottomPane.add(bttnCancel);
+        bottom_pane.add(bttnCancel);
         bttnCancel.addActionListener(this);
 
-        newFrame.getContentPane().add(topPane,
+        new_frame.getContentPane().add(top_pane,
                 BorderLayout.NORTH);
-        newFrame.getContentPane().add(listScrollPane,
+        new_frame.getContentPane().add(listScrollPane,
                 BorderLayout.CENTER);
-        newFrame.getContentPane().add(bottomPane,
+        new_frame.getContentPane().add(bottom_pane,
                 BorderLayout.SOUTH);
 
-        newFrame.show();
+        new_frame.show();
 
     }
 
     public void ViewAllContacts() {
 
-        newFrame = new JFrame("All Contacts In The AddressBook");
-        newFrame.setSize(600, 300);
-        newFrame.setIconImage(img);
+        new_frame = new JFrame("All Contacts In The AddressBook");
+        new_frame.setSize(600, 300);
+        new_frame.setIconImage(img);
 
         Contact con = new Contact();
 
@@ -570,19 +573,19 @@ class OperationHandler implements ListSelectionListener,
         k = 0;
 
         JTable abtable = new JTable(data, columnNames);
-        JScrollPane scrollPane = new JScrollPane(abtable);
+        JScrollPane scroll_pane = new JScrollPane(abtable);
         abtable.setPreferredScrollableViewportSize(new Dimension(500, 370));
 
         JPanel pane = new JPanel();
         JLabel label = new JLabel("Contacts Currently In The Address Book");
         pane.add(label);
 
-        newFrame.getContentPane().add(pane, BorderLayout.SOUTH);
-        newFrame.getContentPane().add(scrollPane,
+        new_frame.getContentPane().add(pane, BorderLayout.SOUTH);
+        new_frame.getContentPane().add(scroll_pane,
                 BorderLayout.CENTER);
-        newFrame.setLocation(screenWidth / 4,
-                screenHeight / 4);
-        newFrame.show();
+        new_frame.setLocation(screen_width / 4,
+                screen_height / 4);
+        new_frame.show();
 
     }
 
@@ -593,11 +596,11 @@ class OperationHandler implements ListSelectionListener,
         FileInputStream fishelp = null;
         int i;
 
-        newFrame = new JFrame(title);
-        newFrame.setSize(401, 400);
-        newFrame.setResizable(false);
-        newFrame.setLocation(screenWidth / 4, screenHeight / 4);
-        newFrame.setIconImage(img);
+        new_frame = new JFrame(title);
+        new_frame.setSize(401, 400);
+        new_frame.setResizable(false);
+        new_frame.setLocation(screen_width / 4, screen_height / 4);
+        new_frame.setIconImage(img);
 
         JTextArea textArea = new JTextArea(5, 20);
         textArea.setLineWrap(true);
@@ -606,7 +609,8 @@ class OperationHandler implements ListSelectionListener,
         try {
             fishelp = new FileInputStream("help/help.txt");
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(newFrame, "Help FileNot Found.", "Help File Not Found", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(new_frame, "Help FileNot Found.",
+                    "Help File Not Found", JOptionPane.INFORMATION_MESSAGE);
         }
 
         do {
@@ -620,23 +624,23 @@ class OperationHandler implements ListSelectionListener,
 
         textArea.setText(data);
 
-        JPanel bottomPane = new JPanel();
+        JPanel bottom_pane = new JPanel();
         JButton button = new JButton("Ok");
-        bottomPane.add(button);
+        bottom_pane.add(button);
         button.addActionListener(this);
 
-        JPanel topPane = new JPanel();
+        JPanel top_pane = new JPanel();
         JLabel label = new JLabel(title);
-        topPane.add(label);
+        top_pane.add(label);
 
-        JScrollPane scrollPane = new JScrollPane(textArea);
+        JScrollPane scroll_pane = new JScrollPane(textArea);
 
-        newFrame.getContentPane().add(topPane, BorderLayout.NORTH);
-        newFrame.getContentPane().add(scrollPane);
+        new_frame.getContentPane().add(top_pane, BorderLayout.NORTH);
+        new_frame.getContentPane().add(scroll_pane);
 
-        newFrame.getContentPane().add(bottomPane, BorderLayout.SOUTH);
+        new_frame.getContentPane().add(bottom_pane, BorderLayout.SOUTH);
 
-        newFrame.show();
+        new_frame.show();
 
     }
 
@@ -644,40 +648,44 @@ class OperationHandler implements ListSelectionListener,
 
         if (ae.getActionCommand() == "Add New!") {
 
-            if (txtFirstName.getText().equals("")
-                    && txtLastName.getText().equals("") && txtNickname.getText().equals("")
-                    && txtEMail.getText().equals("") && txtAddress.getText().equals("")
-                    && txtPhoneNo.getText().equals("") && txtWebpage.getText().equals("")
-                    && txtBDay.getText().equals("")) {
+            if (tFirstName.getText().equals("")
+                    && tLastName.getText().equals("") && tNickname.getText().equals("")
+                    && tEMail.getText().equals("") && tAddress.getText().equals("")
+                    && tPhoneNo.getText().equals("") && tWebpage.getText().equals("")
+                    && tBDay.getText().equals("")) {
 
-                JOptionPane.showMessageDialog(newFrame,
-                        "Entries Empty! Fill in the required entries to save Contact.", "EntriesEmpty", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(new_frame,
+                        "Entries Empty! Fill in the required entries to save Contact.", 
+                        "EntriesEmpty", JOptionPane.INFORMATION_MESSAGE);
 
             } else {
                 Contact contact = new Contact();
-                contact.setDetails(txtFirstName.getText(), txtLastName.getText(), txtNickname.getText(), txtEMail.getText(), txtAddress.getText(), txtPhoneNo.getText(), txtWebpage.getText(), txtBDay.getText());
+                contact.setDetails(tFirstName.getText(), tLastName.getText(),
+                        tNickname.getText(), tEMail.getText(),
+                        tAddress.getText(), tPhoneNo.getText(),
+                        tWebpage.getText(), tBDay.getText());
                 v.addElement(contact);
-                txtFirstName.setText("");
-                txtLastName.setText("");
-                txtNickname.setText("");
-                txtEMail.setText("");
-                txtAddress.setText("");
-                txtPhoneNo.setText("");
-                txtWebpage.setText("");
-                txtBDay.setText("");
+                tFirstName.setText("");
+                tLastName.setText("");
+                tNickname.setText("");
+                tEMail.setText("");
+                tAddress.setText("");
+                tPhoneNo.setText("");
+                tWebpage.setText("");
+                tBDay.setText("");
 
-                if (BttnSaveAdded.isEnabled() == false) {
-                    BttnSaveAdded.setEnabled(true);
+                if (btnSaveAdded.isEnabled() == false) {
+                    btnSaveAdded.setEnabled(true);
                 }
             }
 
         } else if (ae.getActionCommand() == "Save Added!") {
 
             saveVector();
-            newFrame.setVisible(false);
+            new_frame.setVisible(false);
 
         } else if (ae.getActionCommand() == "Ok") {
-            newFrame.setVisible(false);
+            new_frame.setVisible(false);
 
         } else if (ae.getActionCommand() == "Delete Selected") {
 
@@ -688,17 +696,20 @@ class OperationHandler implements ListSelectionListener,
 
                 if (index == -1) {
 
-                    JOptionPane.showMessageDialog(newFrame, "Select a Contact first to delete it.", "Select a Contact First", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(new_frame, "Select a Contact first to delete it.",
+                            "Select a Contact First", JOptionPane.INFORMATION_MESSAGE);
                 } else {
 
                     int n
-                            = JOptionPane.showConfirmDialog(newFrame, "Are you sure you want to delete the selected Contact?", "Are you sure ?", JOptionPane.YES_NO_OPTION);
+                            = JOptionPane.showConfirmDialog(new_frame,
+                                    "Are you sure you want to delete the selected Contact?",
+                                    "Are you sure ?", JOptionPane.YES_NO_OPTION);
 
                     if (n == JOptionPane.YES_OPTION) {
                         listModel.remove(index);
                         v.removeElementAt(index);
                         saveVector();
-                        newFrame.show();
+                        new_frame.show();
 
                     } else if (n
                             == JOptionPane.NO_OPTION) {
@@ -713,7 +724,7 @@ class OperationHandler implements ListSelectionListener,
 
         } else if (ae.getActionCommand() == "Cancel") {
 
-            newFrame.setVisible(false);
+            new_frame.setVisible(false);
         } else if (ae.getActionCommand() == "Search!") {
             String SearchStr;
             SearchStr = txtSearch.getText();
@@ -750,8 +761,8 @@ class OperationHandler implements ListSelectionListener,
                     data[c][6] = con.getWebpage();
                     data[c][7] = con.getBday();
                     searchTable = new JTable(data, columnNames);
-                    newFrame.setSize(700, 221);
-                    newFrame.setSize(700, 220);
+                    new_frame.setSize(700, 221);
+                    new_frame.setSize(700, 220);
 
                     if (c < 5) {
                         c++;
@@ -761,10 +772,11 @@ class OperationHandler implements ListSelectionListener,
             }
 
             if (flag) {
-                JOptionPane.showMessageDialog(newFrame,
+                JOptionPane.showMessageDialog(new_frame,
                         "Contact Found!", "Search Result!", JOptionPane.INFORMATION_MESSAGE);
             } else {
-                JOptionPane.showMessageDialog(newFrame, "No Such Contact Found!", "Search Result!", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(new_frame, "No Such Contact Found!", 
+                        "Search Result!", JOptionPane.INFORMATION_MESSAGE);
             }
 
         } else if (ae.getActionCommand() == "Sort Contacts") {
@@ -816,7 +828,7 @@ class OperationHandler implements ListSelectionListener,
                 saveVector();
             }
 
-            newFrame.setVisible(false);
+            new_frame.setVisible(false);
         }
 
     }
